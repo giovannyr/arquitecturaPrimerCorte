@@ -13,12 +13,12 @@
             <div id="sidebar-wrapper">
                 <ul class="sidebar-nav">
                     <li class="sidebar-brand">
-                        <a href="#">
+                        <a href="index.jsp">
                             Viajes Unimonito
                         </a>
                     </li>
                     <li>
-                        <a href="principal.jsp">Administrador</a>
+                        <a href="addEvento.jsp">Administrador</a>
                     </li>
                     <li>
                         <a href="#">Usuario</a>

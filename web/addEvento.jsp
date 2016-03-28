@@ -24,7 +24,7 @@
                         </a>
                     </li>
                     <li>
-                        <a href="#">Crear Evento</a>
+                        <a href="addEvento.jsp">Crear Evento</a>
                     </li>
                     <li>
                         <a href="#">Foro</a>
