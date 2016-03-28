@@ -6,17 +6,11 @@
 package edu.uniminuto.arqsw.proyecto.Servlet;
 
 import edu.uniminuto.arqsw.proyecto.DAO.CiudadDAO;
-import edu.uniminuto.arqsw.proyecto.DAO.EventoDAO;
 import edu.uniminuto.arqsw.proyecto.DAO.UsuarioDAO;
 import edu.uniminuto.arqsw.proyecto.Hibernate.Ciudad;
-import edu.uniminuto.arqsw.proyecto.Hibernate.Evento;
 import edu.uniminuto.arqsw.proyecto.Hibernate.Usuario;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.HashSet;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -25,10 +19,10 @@ import javax.servlet.http.HttpServletResponse;
 
 /**
  *
- * @author GIOVANNY
+ * @author ITECH
  */
-@WebServlet(name = "EventoServlet", urlPatterns = {"/EventoServlet"})
-public class EventoServlet extends HttpServlet {
+@WebServlet(name = "CiudadServlet", urlPatterns = {"/CiudadServlet"})
+public class CiudadServlet extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -38,8 +32,7 @@ public class EventoServlet extends HttpServlet {
      * @param response servlet response
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
-     */   
-    
+     */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
@@ -48,10 +41,10 @@ public class EventoServlet extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet EventoServlet</title>");
+            out.println("<title>Servlet CiudadServlet</title>");            
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Holaaaa</h1>");
+            out.println("<h1>Servlet CiudadServlet at " + request.getContextPath() + "</h1>");
             out.println("</body>");
             out.println("</html>");
         }
@@ -82,43 +75,22 @@ public class EventoServlet extends HttpServlet {
      */
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {        
-
-        //  usuario
+            throws ServletException, IOException {
+        
+        
         UsuarioDAO userDao = new UsuarioDAO();
-        Usuario usuario = userDao.getUserByRol("ADMIN");        
+        Usuario usuario = userDao.getUserByRol("ADMIN"); 
         
-        EventoDAO eventoDao = new EventoDAO();
-
-        String nombre = request.getParameter("nombre");
-        String tipo = request.getParameter("tipo");
-        int idCiudad = Integer.parseInt(request.getParameter("ciudad"));
+        String nombre = request.getParameter("nombre").toUpperCase();
+        String pais = request.getParameter("pais");
+        String continente = request.getParameter("continente");        
         
-        //  ciudad
-        CiudadDAO ciudadDao = new CiudadDAO();
-        Ciudad ciudad = ciudadDao.getCiudadById(idCiudad);
-
-        SimpleDateFormat formatoDelTexto = new SimpleDateFormat("yyyy-MM-dd");
-        Date fecha_inicio = null;
-        try {
-            fecha_inicio = formatoDelTexto.parse(request.getParameter("fecha_inicio"));
-        } catch (ParseException ex) {
-            ex.printStackTrace();
-        }
-        Date fecha_fin = null;
-        try {
-            fecha_fin = formatoDelTexto.parse(request.getParameter("fecha_fin"));
-        } catch (ParseException ex) {
-            ex.printStackTrace();
-        }
-
-        Evento evento = new Evento(usuario, nombre, tipo, fecha_inicio, fecha_fin);
+        Ciudad ciudad = new Ciudad(usuario, nombre, pais, continente);       
         
-        HashSet evCiu = new HashSet();
-        evCiu.add(ciudad);
+        CiudadDAO cityDao = new CiudadDAO();
+        cityDao.addCiudad(ciudad);
         
-        eventoDao.addEvento(evento, evCiu);
-
+        
         processRequest(request, response);
     }
 

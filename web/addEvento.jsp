@@ -6,7 +6,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Principal Admin</title>
+        <title>Crear Evento Admin</title>
         <link rel="stylesheet" href="recursos/css/bootstrap.min.css" />
         <link rel="stylesheet" href="recursos/css/simple-sidebar.css" />
         <script src="recursos/js/jquery.js"></script>
@@ -24,13 +24,13 @@
                         </a>
                     </li>
                     <li>
-                        <a href="addEvento.jsp">Crear Evento</a>
+                        <a class="active" href="addEvento.jsp">Crear Evento</a>
                     </li>
                     <li>
                         <a href="#">Foro</a>
                     </li>
                     <li>
-                        <a href="#">Crear Ciudad</a>
+                        <a href="addCiudad.jsp">Crear Ciudad</a>
                     </li>
                     <li>
                         <a href="#">Crear Hotel</a>
@@ -67,8 +67,8 @@
                                                 CiudadDAO cd = new CiudadDAO();
                                                 for (Ciudad c : cd.getAllCities()) {
                                             %>        
-                                            <option value="<%= c.getId() %>"><%= c.getNombre() %></option>
-                                            <%        
+                                            <option value="<%= c.getId()%>"><%= c.getNombre()%></option>
+                                            <%
                                                 }
                                             %>
                                         </select>
@@ -94,8 +94,5 @@
             </div>
         </div>
 
-    </div>
-
-
-</body>
+    </body>
 </html>

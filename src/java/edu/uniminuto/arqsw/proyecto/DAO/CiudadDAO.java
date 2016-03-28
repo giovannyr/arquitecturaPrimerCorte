@@ -56,4 +56,20 @@ public class CiudadDAO {
         
         return ciudades;        
     }
+    
+    
+    public void addCiudad(Ciudad ciudad){  
+        Session session = HibernateUtil.getSessionFactory().openSession();
+        
+        try {
+            Transaction tx = session.beginTransaction();
+            session.save(ciudad);
+            session.getTransaction().commit();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }finally{
+            session.close();
+        }    
+    }
+    
 }
