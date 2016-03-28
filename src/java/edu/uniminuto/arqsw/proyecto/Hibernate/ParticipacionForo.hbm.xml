@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 26/03/2016 11:42:00 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="edu.uniminuto.arqsw.proyecto.Hibernate.ParticipacionForo" table="participacion_foro" catalog="arquitectura" optimistic-lock="version">
+        <id name="id" type="java.lang.Integer">
+            <column name="ID" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="foro" class="edu.uniminuto.arqsw.proyecto.Hibernate.Foro" fetch="select">
+            <column name="FORO_ID" not-null="true" />
+        </many-to-one>
+        <many-to-one name="usuario" class="edu.uniminuto.arqsw.proyecto.Hibernate.Usuario" fetch="select">
+            <column name="USUARIO_ID" not-null="true" />
+        </many-to-one>
+        <property name="participacion" type="string">
+            <column name="PARTICIPACION" length="65535" not-null="true" />
+        </property>
+        <property name="fecha" type="timestamp">
+            <column name="FECHA" length="19" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

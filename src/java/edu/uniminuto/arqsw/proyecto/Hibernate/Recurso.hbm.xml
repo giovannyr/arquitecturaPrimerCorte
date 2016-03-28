@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 26/03/2016 11:42:00 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="edu.uniminuto.arqsw.proyecto.Hibernate.Recurso" table="recurso" catalog="arquitectura" optimistic-lock="version">
+        <id name="id" type="int">
+            <column name="ID" />
+            <generator class="assigned" />
+        </id>
+        <property name="nombre" type="string">
+            <column name="NOMBRE" length="250" not-null="true" />
+        </property>
+        <property name="descripcion" type="string">
+            <column name="DESCRIPCION" length="45" />
+        </property>
+        <set name="informacionEventos" table="recurso_informacion_evento" inverse="false" lazy="true" fetch="select">
+            <key>
+                <column name="RECURSO_ID" not-null="true" />
+            </key>
+            <many-to-many entity-name="edu.uniminuto.arqsw.proyecto.Hibernate.InformacionEvento">
+                <column name="INFORMACION_EVENTO_ID" not-null="true" />
+            </many-to-many>
+        </set>
+    </class>
+</hibernate-mapping>

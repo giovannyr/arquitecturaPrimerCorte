@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-reverse-engineering PUBLIC "-//Hibernate/Hibernate Reverse Engineering DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-reverse-engineering-3.0.dtd">
+<hibernate-reverse-engineering>
+  <schema-selection match-catalog="arquitectura"/>
+  <table-filter match-name="recurso"/>
+  <table-filter match-name="ciudad_hotel"/>
+  <table-filter match-name="usuario"/>
+  <table-filter match-name="itinerario"/>
+  <table-filter match-name="evento"/>
+  <table-filter match-name="hotel"/>
+  <table-filter match-name="informacion_evento"/>
+  <table-filter match-name="recurso_informacion_evento"/>
+  <table-filter match-name="ciudad"/>
+  <table-filter match-name="itinerario_ciudad"/>
+  <table-filter match-name="foro"/>
+  <table-filter match-name="participacion_foro"/>
+  <table-filter match-name="evento_ciudad"/>
+  <table-filter match-name="foro_ciudad"/>
+  <table-filter match-name="foro_evento"/>
+  <table-filter match-name="categoria"/>
+</hibernate-reverse-engineering>

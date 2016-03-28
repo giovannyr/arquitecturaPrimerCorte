@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 26/03/2016 11:42:00 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="edu.uniminuto.arqsw.proyecto.Hibernate.Categoria" table="categoria" catalog="arquitectura" optimistic-lock="version">
+        <id name="id" type="java.lang.Integer">
+            <column name="ID" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="usuario" class="edu.uniminuto.arqsw.proyecto.Hibernate.Usuario" fetch="select">
+            <column name="USUARIO_ID" not-null="true" />
+        </many-to-one>
+        <property name="categoria" type="string">
+            <column name="CATEGORIA" not-null="true" />
+        </property>
+        <property name="calificacion" type="int">
+            <column name="CALIFICACION" not-null="true" />
+        </property>
+        <set name="hotels" table="hotel" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="CATEGORIA_ID" not-null="true" />
+            </key>
+            <one-to-many class="edu.uniminuto.arqsw.proyecto.Hibernate.Hotel" />
+        </set>
+    </class>
+</hibernate-mapping>

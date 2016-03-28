@@ -1,0 +1,66 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 26/03/2016 11:42:00 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="edu.uniminuto.arqsw.proyecto.Hibernate.Usuario" table="usuario" catalog="arquitectura" optimistic-lock="version">
+        <id name="id" type="java.lang.Integer">
+            <column name="ID" />
+            <generator class="identity" />
+        </id>
+        <property name="cedula" type="string">
+            <column name="CEDULA" length="100" not-null="true" unique="true" />
+        </property>
+        <property name="nombre" type="string">
+            <column name="NOMBRE" length="250" not-null="true" />
+        </property>
+        <property name="correo" type="string">
+            <column name="CORREO" length="250" not-null="true" />
+        </property>
+        <property name="rol" type="string">
+            <column name="ROL" length="45" not-null="true" />
+        </property>
+        <set name="categorias" table="categoria" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="USUARIO_ID" not-null="true" />
+            </key>
+            <one-to-many class="edu.uniminuto.arqsw.proyecto.Hibernate.Categoria" />
+        </set>
+        <set name="eventos" table="evento" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="USUARIO_ID" not-null="true" />
+            </key>
+            <one-to-many class="edu.uniminuto.arqsw.proyecto.Hibernate.Evento" />
+        </set>
+        <set name="ciudads" table="ciudad" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="USUARIO_ID" not-null="true" />
+            </key>
+            <one-to-many class="edu.uniminuto.arqsw.proyecto.Hibernate.Ciudad" />
+        </set>
+        <set name="foros" table="foro" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="USUARIO_ID" not-null="true" />
+            </key>
+            <one-to-many class="edu.uniminuto.arqsw.proyecto.Hibernate.Foro" />
+        </set>
+        <set name="hotels" table="hotel" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="USUARIO_ID" not-null="true" />
+            </key>
+            <one-to-many class="edu.uniminuto.arqsw.proyecto.Hibernate.Hotel" />
+        </set>
+        <set name="participacionForos" table="participacion_foro" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="USUARIO_ID" not-null="true" />
+            </key>
+            <one-to-many class="edu.uniminuto.arqsw.proyecto.Hibernate.ParticipacionForo" />
+        </set>
+        <set name="itinerarios" table="itinerario" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="USUARIO_ID" not-null="true" />
+            </key>
+            <one-to-many class="edu.uniminuto.arqsw.proyecto.Hibernate.Itinerario" />
+        </set>
+    </class>
+</hibernate-mapping>

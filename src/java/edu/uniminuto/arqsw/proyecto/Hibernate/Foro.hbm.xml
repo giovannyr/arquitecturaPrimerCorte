@@ -1,0 +1,43 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 26/03/2016 11:42:00 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="edu.uniminuto.arqsw.proyecto.Hibernate.Foro" table="foro" catalog="arquitectura" optimistic-lock="version">
+        <id name="id" type="java.lang.Integer">
+            <column name="ID" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="usuario" class="edu.uniminuto.arqsw.proyecto.Hibernate.Usuario" fetch="select">
+            <column name="USUARIO_ID" not-null="true" />
+        </many-to-one>
+        <property name="tema" type="string">
+            <column name="TEMA" length="65535" not-null="true" />
+        </property>
+        <property name="fechaPublicacion" type="timestamp">
+            <column name="FECHA_PUBLICACION" length="19" not-null="true" />
+        </property>
+        <set name="ciudads" table="foro_ciudad" inverse="false" lazy="true" fetch="select">
+            <key>
+                <column name="FORO_ID" not-null="true" />
+            </key>
+            <many-to-many entity-name="edu.uniminuto.arqsw.proyecto.Hibernate.Ciudad">
+                <column name="CIUDAD_ID" not-null="true" />
+            </many-to-many>
+        </set>
+        <set name="eventos" table="foro_evento" inverse="false" lazy="true" fetch="select">
+            <key>
+                <column name="FORO_ID" not-null="true" />
+            </key>
+            <many-to-many entity-name="edu.uniminuto.arqsw.proyecto.Hibernate.Evento">
+                <column name="EVENTO_ID" not-null="true" />
+            </many-to-many>
+        </set>
+        <set name="participacionForos" table="participacion_foro" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="FORO_ID" not-null="true" />
+            </key>
+            <one-to-many class="edu.uniminuto.arqsw.proyecto.Hibernate.ParticipacionForo" />
+        </set>
+    </class>
+</hibernate-mapping>
