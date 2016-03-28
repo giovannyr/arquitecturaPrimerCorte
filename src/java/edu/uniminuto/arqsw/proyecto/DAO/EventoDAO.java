@@ -7,8 +7,7 @@ package edu.uniminuto.arqsw.proyecto.DAO;
 
 import edu.uniminuto.arqsw.proyecto.Hibernate.Evento;
 import edu.uniminuto.arqsw.proyecto.Hibernate.HibernateUtil;
-import edu.uniminuto.arqsw.proyecto.Hibernate.Usuario;
-import java.util.Date;
+import java.util.Set;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
@@ -24,7 +23,9 @@ public class EventoDAO {
         this.session = HibernateUtil.getSessionFactory().openSession();
     }
 
-    public void addEvento(Evento evento) {        
+    public void addEvento(Evento evento, Set evCiu) {  
+        evento.setCiudads(evCiu);
+                
         try {
             Transaction tx = session.beginTransaction();
             session.save(evento);

@@ -16,6 +16,7 @@ import java.io.PrintWriter;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.HashSet;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -83,7 +84,7 @@ public class EventoServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {        
 
-        
+        //  evento
         UsuarioDAO userDao = new UsuarioDAO();
         Usuario usuario = userDao.getUserByRol("ADMIN");        
         
@@ -93,6 +94,7 @@ public class EventoServlet extends HttpServlet {
         String tipo = request.getParameter("tipo");
         int idCiudad = Integer.parseInt(request.getParameter("ciudad"));
         
+        //  ciudad
         CiudadDAO ciudadDao = new CiudadDAO();
         Ciudad ciudad = ciudadDao.getCiudadById(idCiudad);
 
@@ -112,10 +114,10 @@ public class EventoServlet extends HttpServlet {
 
         Evento evento = new Evento(usuario, nombre, tipo, fecha_inicio, fecha_fin);
         
-        ciudad.getEventos().add(evento);
-        evento.getCiudads().add(ciudad);
+        HashSet evCiu = new HashSet();
+        evCiu.add(ciudad);
         
-        eventoDao.addEvento(evento);
+        eventoDao.addEvento(evento, evCiu);
 
         processRequest(request, response);
     }

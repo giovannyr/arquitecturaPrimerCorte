@@ -29,7 +29,7 @@
             </key>
             <one-to-many class="edu.uniminuto.arqsw.proyecto.Hibernate.InformacionEvento" />
         </set>
-        <set name="ciudads" table="evento_ciudad" inverse="true" lazy="true" fetch="select">
+        <set name="ciudads" table="evento_ciudad" inverse="false" lazy="true" fetch="select">
             <key>
                 <column name="EVENTO_ID" not-null="true" />
             </key>
