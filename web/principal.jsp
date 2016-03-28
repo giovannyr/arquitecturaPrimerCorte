@@ -54,11 +54,11 @@
                                 <div class="col-md-4">
                                     <div class="form-group">
                                         <label for="nombre">Nombre Evento</label>
-                                        <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Nombre" required="true" autocomplete="off" autofocus>
+                                        <input value="Rolling Stones" type="text" class="form-control" id="nombre" name="nombre" placeholder="Nombre" required="true" autocomplete="off" autofocus>
                                     </div>
                                     <div class="form-group">
                                         <label for="tipo">Tipo Evento</label>
-                                        <input type="text" class="form-control" id="tipo" name="tipo" placeholder="Tipo" required="true" autocomplete="off">
+                                        <input value="Musical" type="text" class="form-control" id="tipo" name="tipo" placeholder="Tipo" required="true" autocomplete="off">
                                     </div>
                                     <div class="form-group">
                                         <label for="ciudad">Ciudad</label>
