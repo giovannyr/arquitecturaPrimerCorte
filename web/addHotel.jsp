@@ -1,12 +1,13 @@
+<%@page import="edu.uniminuto.arqsw.proyecto.Hibernate.Ciudad"%>
+<%@page import="edu.uniminuto.arqsw.proyecto.DAO.CiudadDAO"%>
+<%@page import="edu.uniminuto.arqsw.proyecto.Hibernate.Categoria"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%@page import="edu.uniminuto.arqsw.proyecto.Hibernate.Ciudad" %>
-<%@page import="edu.uniminuto.arqsw.proyecto.DAO.CiudadDAO" %>
-
+<%@page import="edu.uniminuto.arqsw.proyecto.DAO.CategoriaDAO"%>
 <!DOCTYPE html>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Crear Evento Admin</title>
+        <title>Hotel</title>
         <link rel="stylesheet" href="recursos/css/bootstrap.min.css" />
         <link rel="stylesheet" href="recursos/css/simple-sidebar.css" />
         <script src="recursos/js/jquery.js"></script>
@@ -24,7 +25,7 @@
                         </a>
                     </li>
                     <li>
-                        <a class="active" href="addEvento.jsp">Crear Evento</a>
+                        <a href="addEvento.jsp">Crear Evento</a>
                     </li>
                     <li>
                         <a href="#">Foro</a>
@@ -33,10 +34,10 @@
                         <a href="addCiudad.jsp">Crear Ciudad</a>
                     </li>
                     <li>
-                        <a href="addHotel.jsp">Crear Hotel</a>
+                        <a class="active" href="addHotel.jsp">Crear Hotel</a>
                     </li>
                     <li>
-                        <a href="#">Crear Categoría</a>
+                        <a href="addCategoria.jsp">Crear Categoría</a>
                     </li>                    
                     <li>
                         <a href="#">Opcional</a>
@@ -49,40 +50,41 @@
                 <div class="container-fluid">
                     <div class="row">
                         <div class="col-lg-12">
-                            <h1>Crear evento</h1>
-                            <form action="EventoServlet" method="post">
+                            <h1>Crear Hotel</h1>
+                            <form action="HotelServlet" method="post">
                                 <div class="col-md-4">
                                     <div class="form-group">
-                                        <label for="nombre">Nombre Evento</label>
-                                        <input value="Rolling Stones" type="text" class="form-control" id="nombre" name="nombre" placeholder="Nombre" required="true" autocomplete="off" autofocus>
+                                        <label for="nombre">Nombre</label>
+                                        <input class="form-control" id="nombre" name="nombre" required="true" autocomplete="off" autofocus>
                                     </div>
                                     <div class="form-group">
-                                        <label for="tipo">Tipo Evento</label>
-                                        <input value="Musical" type="text" class="form-control" id="tipo" name="tipo" placeholder="Tipo" required="true" autocomplete="off">
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="ciudad">Ciudad</label>
-                                        <select class="form-control" id="ciudad" name="ciudad" required="true" autocomplete="off">
+                                        <label for="categoria">Categoria</label>
+                                        <select class="form-control" id="categoria" name="categoria" required="true">
                                             <%
-                                                CiudadDAO cd = new CiudadDAO();
-                                                for (Ciudad c : cd.getAllCities()) {
-                                            %>        
-                                            <option value="<%= c.getId()%>"><%= c.getNombre()%></option>
+                                                CategoriaDAO cd = new CategoriaDAO();
+                                                for (Categoria c : cd.getAllCategorias()) {
+                                            %>
+                                                <option value="<%= c.getId() %>"><%= c.getCategoria() %></option>
                                             <%
                                                 }
                                             %>
                                         </select>
                                     </div>
                                     <div class="form-group">
-                                        <label for="fecha_inicio">Fecha de inicio</label>
-                                        <input type="date" class="form-control" id="fecha_inicio" name="fecha_inicio" placeholder="Fecha inicio" required="true" autocomplete="off">
+                                        <label for="ciudad">Ciudad</label>
+                                        <select class="form-control" name="ciudad" id="ciudad" required>
+                                            <%
+                                                CiudadDAO cityd = new CiudadDAO();
+                                                for (Ciudad city : cityd.getAllCities()) {
+                                            %>
+                                                <option value="<%= city.getId() %>"><%= city.getNombre() %></option>
+                                            <%
+                                                }
+                                            %>
+                                        </select>
                                     </div>
                                     <div class="form-group">
-                                        <label for="fecha_fin">Fecha de finalizacion</label>
-                                        <input type="date" class="form-control" id="fecha_fin" name="fecha_fin" placeholder="Fecha fin" required="true" autocomplete="off">
-                                    </div>
-                                    <div class="form-group">
-                                        <button type="submit" class="btn btn-success center-block">Crear Evento</button>
+                                        <button type="submit" class="btn btn-success center-block">Crear Categoria</button>
                                     </div>
                                 </div>
                             </form>
@@ -91,6 +93,5 @@
                 </div>
             </div>
         </div>
-
     </body>
 </html>

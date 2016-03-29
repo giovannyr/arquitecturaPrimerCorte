@@ -3,7 +3,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Crear ciudad</title>
+        <title>Categoria</title>
         <link rel="stylesheet" href="recursos/css/bootstrap.min.css" />
         <link rel="stylesheet" href="recursos/css/simple-sidebar.css" />
         <script src="recursos/js/jquery.js"></script>
@@ -27,13 +27,13 @@
                         <a href="#">Foro</a>
                     </li>
                     <li>
-                        <a class="active" href="addCiudad.jsp">Crear Ciudad</a>
+                        <a href="addCiudad.jsp">Crear Ciudad</a>
                     </li>
                     <li>
                         <a href="addHotel.jsp">Crear Hotel</a>
                     </li>
                     <li>
-                        <a href="addCategoria.jsp">Crear Categoría</a>
+                        <a class="active" href="addCategoria.jsp">Crear Categoría</a>
                     </li>                    
                     <li>
                         <a href="#">Opcional</a>
@@ -46,36 +46,31 @@
                 <div class="container-fluid">
                     <div class="row">
                         <div class="col-lg-12">
-                            <h1>Crear Ciudad</h1>
-                            <form action="CiudadServlet" method="post">
+                            <h1>Crear Categoria</h1>
+                            <form action="CategoriaServlet" method="post">
                                 <div class="col-md-4">
                                     <div class="form-group">
-                                        <label for="nombre">Nombre Ciudad</label>
-                                        <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Nombre" required="true" autocomplete="off" autofocus>
+                                        <label for="categoria">Categoria</label>
+                                        <input class="form-control" id="categoria" name="categoria" required="true" autocomplete="off" autofocus>
+                                            <!--<option value="1 estrella">1 Estrella</option>
+                                            <option value="2 estrellas">2 Estrellas</option>
+                                            <option value="3 estrellas">3 Estrellas</option>
+                                            <option value="4 estrellas">4 Estrellas</option>
+                                            <option value="5 estrellas">5 Estrellas</option>
+                                        </select>-->
                                     </div>
                                     <div class="form-group">
-                                        <label for="pais">País</label>
-                                        <input type="text" list="paises" class="form-control" id="pais" name="pais" placeholder="País" required="true" autocomplete="off">
-                                        <datalist id="paises">
-                                            <option value="Colombia">
-                                            <option value="Ecuador">
-                                            <option value="Peru">
-                                            <option value="Argentina">
-                                            <option value="Brazil">
-                                        </datalist>
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="continente">Continente</label>
-                                        <select class="form-control" id="continente" name="continente" required="true" autocomplete="off">
-                                            <option value="America">America</option>
-                                            <option value="Europa">Europa</option>
-                                            <option value="Africa">Africa</option>
-                                            <option value="Asia">Asia</option>
-                                            <option value="Oceania">Oceania</option>
+                                        <label for="puntuacion">Puntuacion</label>
+                                        <select class="form-control" id="puntuacion" name="puntuacion" required="true">
+                                            <option value="1">Por debajo del promedio</option>
+                                            <option value="2">Aceptable</option>
+                                            <option value="3">Bueno</option>
+                                            <option value="4">Muy bueno</option>
+                                            <option value="5">Excelente</option>
                                         </select>
                                     </div>
                                     <div class="form-group">
-                                        <button type="submit" class="btn btn-success center-block">Crear Ciudad</button>
+                                        <button type="submit" class="btn btn-success center-block">Crear Categoria</button>
                                     </div>
                                 </div>
                             </form>
