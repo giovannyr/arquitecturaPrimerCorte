@@ -19,7 +19,7 @@ import org.hibernate.Transaction;
  */
 public class EventoDAO {
 
-    Session session = null;
+    //Session session = null;
 
     public EventoDAO() {
         //this.session = HibernateUtil.getSessionFactory().openSession();
