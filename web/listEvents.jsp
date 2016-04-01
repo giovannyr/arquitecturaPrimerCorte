@@ -1,6 +1,6 @@
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@page import="edu.uniminuto.arqsw.proyecto.DAO.EventoDAO"%>
 <%@page import="edu.uniminuto.arqsw.proyecto.Hibernate.Evento"%>
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
     <head>
