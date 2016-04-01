@@ -26,7 +26,7 @@
                         <a class="active" href="addEvento.jsp">Crear Evento</a>
                     </li>
                     <li>
-                        <a href="#"></a>
+                        <a href="listEvents.jsp">Listar eventos</a>
                     </li>
                     <li>
                         <a href="#"></a>

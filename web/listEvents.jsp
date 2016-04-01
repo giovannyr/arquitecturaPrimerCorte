@@ -1,3 +1,4 @@
+<%@page import="java.util.List"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@page import="edu.uniminuto.arqsw.proyecto.Hibernate.Evento"%>
 <%@page import="edu.uniminuto.arqsw.proyecto.DAO.EventoDAO"%>
@@ -63,8 +64,16 @@
                                 <%
                                 EventoDAO edao = new EventoDAO();
                                 
-                                for(Evento evnt : edao.getAllEventos()){
-                                    
+                                List<Evento> list = edao.getAll();
+                                
+                                for(Evento evnt : list){
+                                %>    
+                                  <tr>
+                                      <td><%= evnt.getNombre() %></td>
+                                      <td><%= evnt.getFechaInicio() %></td>
+                                      <td><%= evnt.getFechaFin() %></td>
+                                  </tr>  
+                                <%    
                                 }
                                 %>
                                 </tbody>

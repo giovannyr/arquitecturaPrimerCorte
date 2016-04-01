@@ -20,42 +20,41 @@ import org.hibernate.Transaction;
 public class EventoDAO {
 
     //Session session = null;
-
-    public EventoDAO() {
-        //this.session = HibernateUtil.getSessionFactory().openSession();
-    }
-
-    public void addEvento(Evento evento, Set evCiu) {  
+    /*public EventoDAO() {
+     //this.session = HibernateUtil.getSessionFactory().openSession();
+     }*/
+    public void addEvento(Evento evento, Set evCiu) {
         evento.setCiudads(evCiu);
-        
+
         Session session = HibernateUtil.getSessionFactory().openSession();
-                
+
         try {
             Transaction tx = session.beginTransaction();
             session.save(evento);
             session.getTransaction().commit();
         } catch (Exception e) {
             e.printStackTrace();
-        }finally{
-            session.close();
-        }        
-    }
-    
-    public List<Evento> getAllEventos(){
-        List<Evento> eventos = new ArrayList<Evento>();
-        
-        Session session = HibernateUtil.getSessionFactory().openSession();
-        
-        try{
-            Transaction tx = session.beginTransaction();
-            eventos = session.createQuery("from Evento").list();
-        }catch(Exception e){
-            e.printStackTrace();
-        }finally{
+        } finally {
             session.close();
         }
-        
-        return eventos;        
+    }
+
+    public List<Evento> getAll() {
+        List<Evento> eventos = new ArrayList<Evento>();
+
+        Session session = HibernateUtil.getSessionFactory().openSession();
+
+        try {
+            Transaction tx = session.beginTransaction();
+            eventos = session.createQuery("from Evento").list();
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            session.close();
+        }
+
+        return eventos;
     }
 
 }
+
