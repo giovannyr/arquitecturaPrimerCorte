@@ -44,7 +44,7 @@ public class CiudadServlet extends HttpServlet {
             out.println("<title>Servlet CiudadServlet</title>");            
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet CiudadServlet at " + request.getContextPath() + "</h1>");
+            out.println("<h1>Ciudad creada</h1>");
             out.println("</body>");
             out.println("</html>");
         }

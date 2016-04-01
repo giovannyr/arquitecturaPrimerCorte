@@ -49,7 +49,7 @@ public class HotelServlet extends HttpServlet {
             out.println("<title>Servlet HotelServlet</title>");            
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet HotelServlet at " + request.getContextPath() + "</h1>");
+            out.println("<h1>Hotel creado</h1>");
             out.println("</body>");
             out.println("</html>");
         }

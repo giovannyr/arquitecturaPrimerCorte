@@ -27,6 +27,9 @@
                         <a class="active" href="addEvento.jsp">Crear Evento</a>
                     </li>
                     <li>
+                        <a href="listEvents.jsp">Listar Eventos</a>
+                    </li>
+                    <li>
                         <a href="#">Foro</a>
                     </li>
                     <li>
@@ -39,7 +42,7 @@
                         <a href="#">Crear Categoría</a>
                     </li>                    
                     <li>
-                        <a href="#">Opcional</a>
+                        <a href="#"></a>
                     </li>
                 </ul>
             </div>
@@ -54,11 +57,11 @@
                                 <div class="col-md-4">
                                     <div class="form-group">
                                         <label for="nombre">Nombre Evento</label>
-                                        <input value="Rolling Stones" type="text" class="form-control" id="nombre" name="nombre" placeholder="Nombre" required="true" autocomplete="off" autofocus>
+                                        <input value="" type="text" class="form-control" id="nombre" name="nombre" placeholder="Nombre" required="true" autocomplete="off" autofocus>
                                     </div>
                                     <div class="form-group">
                                         <label for="tipo">Tipo Evento</label>
-                                        <input value="Musical" type="text" class="form-control" id="tipo" name="tipo" placeholder="Tipo" required="true" autocomplete="off">
+                                        <input value="" type="text" class="form-control" id="tipo" name="tipo" placeholder="Tipo" required="true" autocomplete="off">
                                     </div>
                                     <div class="form-group">
                                         <label for="ciudad">Ciudad</label>

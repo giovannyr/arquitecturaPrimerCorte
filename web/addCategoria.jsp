@@ -24,6 +24,9 @@
                         <a href="addEvento.jsp">Crear Evento</a>
                     </li>
                     <li>
+                        <a href="listEvents.jsp">Listar Eventos</a>
+                    </li>
+                    <li>
                         <a href="#">Foro</a>
                     </li>
                     <li>
@@ -36,7 +39,7 @@
                         <a class="active" href="addCategoria.jsp">Crear Categoría</a>
                     </li>                    
                     <li>
-                        <a href="#">Opcional</a>
+                        <a href="#"></a>
                     </li>
                 </ul>
             </div>

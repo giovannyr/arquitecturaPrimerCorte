@@ -51,7 +51,7 @@ public class EventoServlet extends HttpServlet {
             out.println("<title>Servlet EventoServlet</title>");
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Holaaaa</h1>");
+            out.println("<h1>Evento creado</h1>");
             out.println("</body>");
             out.println("</html>");
         }

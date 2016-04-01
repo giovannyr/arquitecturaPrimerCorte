@@ -44,7 +44,7 @@ public class CategoriaServlet extends HttpServlet {
             out.println("<title>Servlet CategoriaServlet</title>");
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet CategoriaServlet at " + request.getContextPath() + "</h1>");
+            out.println("<h1>Categoria creada</h1>");
             out.println("</body>");
             out.println("</html>");
         }

@@ -21,7 +21,7 @@
                         <a href="addEvento.jsp">Administrador</a>
                     </li>
                     <li>
-                        <a href="#">Usuario</a>
+                        <a href="addEventoUser.jsp">Usuario</a>
                     </li>
                 </ul>
             </div>
